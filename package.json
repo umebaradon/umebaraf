@@ -1,7 +1,7 @@
 {
-  "name": "book-memo",
+  "name": "umebaraf",
   "version": "1.0.0",
-  "description": "A book search app project.",
+  "description": "My portfolio.",
   "author": "f-umebara",
   "private": true,
   "scripts": {
@@ -13,9 +13,13 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.10.3",
     "axios": "^0.19.2",
+    "body-scroll-lock": "^3.0.3",
     "install": "^0.13.0",
+    "moment": "^2.27.0",
     "npm": "^6.14.5",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vue-router": "^3.4.3",
+    "vue-scrollto": "^2.18.2"
   },
   "devDependencies": {
     "@nuxtjs/google-analytics": "^2.3.0",

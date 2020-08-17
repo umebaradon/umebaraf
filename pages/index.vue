@@ -1,108 +1,105 @@
 <template lang="pug">
-  div.cover
-    section.-head
-      div.-inner
-        p.-app-name Book memo!
-        img(src="~/assets/svg/book.svg" width="30" height="auto" alt="本アイコン").-app-logo
-        h1 本を検索してください
-        nuxt-link(to="/result").-search-link
-          img(src="~/assets/svg/search.svg" width="30" height="auto" alt="検索アイコン")
-    //- div
-      // {{ books[0].id }},{{ books[0].name}}
-      //  <ul>
-      //  <li v-for="user in books" :key="user.id">
-      //    {{ user.id }},{{user.name }},{{user.company.name}}
-      //  </li>
-      // </ul>
-    //- hr
-    //- div
-      //- <!-- <p>{{ $store.state.message}}</p>
-      //- <!-- <p>{{ $store.state.hello.message}}</p>
-
-      //- <!-- <button v-on:click="$store.commit('updateMassege')">Update</button> -->
-      //- <!-- <button v-on:click="$store.commit('updateMassege','Commit with payload')">Update</button> -->
-      //- <!-- <button v-on:
-      click="$store.dispatch('updateMassegeAction')">Dispatch</button> -->
-      //- <!-- <button v-on:click="$store.dispatch('updateMassegeAction','Dispatch with payload')">Dispatch</button> -->
-      //- <!-- <button v-on:click="$store.dispatch('hello/updateMassegeAction','Dispatch with payload')">Dispatch</button> -->
-      //- Counter
-
-
-    //- drawer-base
+	div
+		div.portfolio
+			div.-main-wrap
+				sidebar.-sidebar
+				div.-main-contents
+					heading(:number="2" fontSize="l" id="about").-title ABOUT
+					content-base(title="プロフィール" id="about-1").-mb24
+						profile
+					content-base(title="スキル" id="about-2").-mb24
+						skills
+					content-base(title="経歴" id="about-3").-mb24
+						experience
+					content-base(title="技術ブログ" id="about-4").-mb40
+						blog
+					heading(:number="2" fontSize="l" id="works").-title WORKS
+					content-base(title="Web" id="works-1").-mb40
+						works-web
+					content-base(title="紙" id="works-2")
+						works-paper
+					small © 2020 umebaraf
 </template>
 
 <script>
-// import Counter from '~/components/Counter.vue';
-// const axios = require('axios')
-// import axios from "axios";
-
-// let url = 'https://www.googleapis.com/books/v1/volumes'
-// let url = 'https://jsonplaceholder.typicode.com/users'
-
-let isModalActive
+import Heading from '~/components/atom/Heading.vue'
+import ContentBase from '~/components/atom/ContentBase.vue'
+import Sidebar from '~/components/organisms/Sidebar.vue'
+import Profile from '~/components/molecules/Profile.vue'
+import Skills from '~/components/molecules/Skills.vue'
+import Experience from '~/components/molecules/Experience.vue'
+import WorksWeb from '~/components/molecules/WorksWeb.vue'
+import WorksPaper from '~/components/molecules/WorksPaper.vue'
+import Blog from '~/components/molecules/Blog.vue'
 
 export default {
-  data: function() {
-    return {
-      // ip:'0.0.0.0'
-			show: true
-    }
-  },
-  methods: {
-    // async getIp() {
-    //   this.ip = await this.$axios.$get('https://httpbin.org/get')
-		// }
+	data: function() {
+		return {
+		}
+	},
+	methods: {
 	},
 	computed: {
 	},
-  components: {
-    // Counter
-    // ModalBase
-  }
-  // asyncData( {params, error} ){
-  //   return axios.get(url)
-  //     .then((res) => {
-  //       return { books: res.data }
-  //     })
-  //     .catch((e => {
-  //       // console.log(e.response.status)
-  //       error ({ books: e.response.status, message: 'ERROR!!!!!!'})
-  //     }))
-	// },
+	components: {
+		ContentBase,
+		Heading,
+		Sidebar,
+		Profile,
+		Skills,
+		Experience,
+		WorksWeb,
+		WorksPaper,
+		Blog
+	}
 }
 </script>
 
 <style lang="sass" scoped>
-.cover
-  width: 100%
-  overflow-x: hidden
-  text-align: center
-  .-head
-    height: 40vh
-    padding: 8vh 8vw
-    position: relative
-    .-inner
-      position: absolute
-      top: 50%
-      left: 50%
-      transform: translateY(-50%) translateX(-50%)
-      width: 100%
-      .-app-name
-        font-size: .6em
-        font-style: italic
-        margin-bottom: 1vh
-      .-app-logo
-        margin: 0 auto
-        margin-bottom: 1vh
-      h1
-        font-size: 1.5em
-        margin-bottom: 2vh
-      .-search-link
-        display: inline-block
-        vertical-align: middle
-        padding: 5%
-        background-color: #eee
-        border-radius: 50%
-        img
-          width: 6vw
+.portfolio
+	background-color: #f4f4f4
+	.-main-wrap
+		@include pc_view
+			display: flex
+		.-sidebar
+			background-color: #fff
+			overflow: hidden
+			z-index: 2
+			@include pc_view
+				position: fixed
+				left: 0
+				flex: 1
+				max-width: 325px
+				height: 100vh
+				box-shadow: -12px 0px 4px 14px rgba(0, 0, 0, 0.1)
+			@include sp_view
+				box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1)
+		.-main-contents
+			flex: 2
+			padding: 16px
+			margin: 0 auto
+			@include pc_view
+				padding-left: 341px
+				max-width: 1350px
+			@include sp_view
+			h2.-title
+				margin-bottom: 24px
+				&::after
+					content: ''
+					width: 60px
+					border-bottom: solid 4px
+					display: block
+					padding-top: 8px
+			small
+				@include pc_view
+					display: none
+				@include sp_view
+					text-align: center
+					font-size: 12px
+					color: #a4a4a4
+					display: block
+					margin: 16px
+					padding-top: 16px
+					box-sizing: border-box
+					width: 100%
 </style>
