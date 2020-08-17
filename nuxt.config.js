@@ -44,12 +44,11 @@ export default {
 	modules: [
 		'@nuxtjs/style-resources',
 		"@nuxtjs/axios",
-		// 'nuxt-svg-loader',
-		// '@nuxtjs/google-analytics',
-		// {
-			// id: 'UA-xxxxxxxxx-x'
-		// }
+		'@nuxtjs/google-analytics',
 	],
+	googleAnalytics: {
+		id: 'UA-175583816-1'
+	},
 	styleResources: {
 		sass: [
 			'@/assets/sass/_mixins.sass',
