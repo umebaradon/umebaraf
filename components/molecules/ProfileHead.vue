@@ -14,10 +14,10 @@
 			div.-sns-logs
 				ul
 					li
-						a(href="https://github.com/umebaradon")
+						a(href="https://github.com/umebaradon" target="_blank")
 							img(src="~/assets/img/github.png" alt="github" width="32")
 					li
-						a(href="https://qiita.com/f-umebara")
+						a(href="https://qiita.com/f-umebara" target="_blank")
 							img(src="~/assets/img/qiita.png" alt="qiita" width="32")
 </template>
 
