@@ -22,7 +22,6 @@
 <script>
 import axios from "axios"
 import ModalBase from '~/components/atom/ModalBase.vue'
-import BookData from '~/components/molecules/BookData.vue'
 
 let isModalActive
 
@@ -40,36 +39,35 @@ export default {
         }
     },
     methods: {
-		openModal() {
-			this.isModalActive = true
-		},
-		closeModal() {
-			this.isModalActive = false
-        },
-		getList(keyword) {
-			// console.log(url + '?q=' +keyword)
-			const params = {
-				q: 'search'+keyword,
-				Country: 'JP',
-				maxResults: 20,
-				startIndex: 0,
-				orderBy: 'relevance',
-			}
-			axios.get(url, { params: params } ).then((res) => {
-				this.books = res.data.items
-				this.searchNum = res.data.totalItems
-				const data = res.data.items
-				for (var key in data) {
-					console.log(key + ':' + data[key].volumeInfo.title)
-				}
-			}).catch(error => {
-				console.log('エラー')
-			})
-		}
+      openModal() {
+        this.isModalActive = true
+      },
+      closeModal() {
+        this.isModalActive = false
+          },
+      getList(keyword) {
+        // console.log(url + '?q=' +keyword)
+        const params = {
+          q: 'search'+keyword,
+          Country: 'JP',
+          maxResults: 20,
+          startIndex: 0,
+          orderBy: 'relevance',
+        }
+        axios.get(url, { params: params } ).then((res) => {
+          this.books = res.data.items
+          this.searchNum = res.data.totalItems
+          const data = res.data.items
+          for (var key in data) {
+            console.log(key + ':' + data[key].volumeInfo.title)
+          }
+        }).catch(error => {
+          console.log('エラー')
+        })
+      }
     },
     components: {
-		BookData,
-        ModalBase
+      ModalBase
     }
 }
 </script>

@@ -2,33 +2,49 @@
 	transition(name="modal")
 		div(v-if="isActive").base-modal
 			div.-contents
-				header
-					h1.-title タイトル
-					button(@click="closeModal") 閉じる
+				header.-mb24
+					heading(:number="2" fontSize="l").-title {{ modalTitle }}
 				slot(name="contents")
-				slot(name="footer")
-					footer
-						double-button
-			div.-overlay
+				footer
+			div.-modal-head
+				div.-auther-img
+					img(src="~/assets/img/auther.png" alt="著作者")
+				heading(:number="2" fontSize="s").-auther Umebara Fumie / Works
+			button.-close(@click="closeModal")
+				img(src="~/assets/svg/cross-w.svg" width="32" height="auto" alt="クロス")
+			div.-overlay(@click.self="closeModal")
 </template>
 
 <script>
-import DoubleButton from '~/components/atom/DoubleButton.vue';
+import DoubleButton from '~/components/atom/DoubleButton.vue'
+import Heading from '~/components/atom/Heading.vue'
+
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 export default {
 	components: {
-		DoubleButton
+		DoubleButton,
+		Heading
 	},
 	props: {
 		isActive: {
 			type: Boolean,
 			default: false
+		},
+		modalTitle: {
+			type: String,
+			default: ''
 		}
 	},
 	methods: {
 		closeModal() {
-			this.$emit('close')
+      this.$emit('close')
+      clearAllBodyScrollLocks()
 		}
+	},
+	mounted() {
+		const modal = document.querySelector('.base-modal')
+		disableBodyScroll(modal)
 	}
 }
 
@@ -43,17 +59,44 @@ export default {
 	bottom: 0
 	height: 100%
 	width: 100%
-	z-index: 1
+	z-index: 2
 	.-contents
-		width: 100%
-		height: 100%
-		z-index: 2
+		z-index: 3
 		background: #fff
-		margin: 0 auto;
+		margin: 0 auto
+		position: relative
+		top: 80px
+		padding: 32px 40px
+		width: calc(100% - 110px)
+	.-modal-head
 		position: fixed
-		top: 50%;
-		left: 50%;
-		transform: translateY(-50%) translateX(-50%);
+		z-index: 2
+		display: flex
+		width: calc(100% - 110px)
+		height: 70px
+		color: #fff
+		top: 6px
+		left: 50%
+		transform: translateY(0%) translateX(-50%)
+		padding: 10px 0
+		.-auther-img
+			height: 48px
+			width: 48px
+			border: solid 2px #fff
+			border-radius: 50px
+			overflow: hidden
+			margin-right: 8px
+			img
+				display: block
+				width: 100%
+		.-auther
+			flex: 5
+			line-height: 2em
+	.-close
+		position: fixed
+		right: 20px
+		top: 24px
+		z-index: 3
 .-overlay
 	z-index: 1
 	position: fixed
@@ -61,7 +104,7 @@ export default {
 	left: 0
 	width: 100%
 	height: 100%
-	background-color: rgba(0,0,0,0.5)
+	background-color: rgba(0, 0, 0, 0.85)
 	display: flex
 	align-items: center
 	justify-content: center
