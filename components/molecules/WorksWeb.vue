@@ -20,6 +20,8 @@
 							p.-mb16 ・{{ item.term }}
 						div.-work-img
 							template(v-if="getModalNumber === 1")
+								p.-mb40 ソースコード：
+									a(href="https://github.com/umebaradon/umebaraf" target="_blank") https://github.com/umebaradon/umebaraf
 								img(src="~/assets/img/work-img-1-1.png" alt="ポートフォリオPC").-mb40
 								img(src="~/assets/img/work-img-1-2.png" alt="ポートフォリオSP").-mobile.-mb24
 							template(v-else-if="getModalNumber === 2")
@@ -27,9 +29,9 @@
 								img(src="~/assets/img/work-img-2-1.png" alt="申請フォーム").-mb24
 							template(v-else-if="getModalNumber === 3")
 								p.-mb16 実装ページ例：
-									a(href="https://skyticket.jp/guide/story/440172") https://skyticket.jp/guide/story/440172
+									a(href="https://skyticket.jp/guide/story/440172" target="_blank") https://skyticket.jp/guide/story/440172
 								p.-mb24 qiita記事：
-									a(href="https://qiita.com/f-umebara/items/f32673ac7ea17270dc07") https://qiita.com/f-umebara/items/f32673ac7ea17270dc07
+									a(href="https://qiita.com/f-umebara/items/f32673ac7ea17270dc07" target="_blank") https://qiita.com/f-umebara/items/f32673ac7ea17270dc07
 								img(src="~/assets/img/work-img-3-1.png" alt="観光ガイドWeb Story").-mb40
 								p.-mb24 投稿方法の資料も制作。
 								img(src="~/assets/img/work-img-3-2.png" alt="観光ガイドWeb Story").-mb24
@@ -88,6 +90,9 @@ export default {
 		height: 250px
 		overflow: hidden
 		text-align: center
+		display: flex
+		justify-content: center
+		align-items: center
 		&:hover
 			cursor: pointer
 			opacity: .8
