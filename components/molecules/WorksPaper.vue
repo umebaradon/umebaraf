@@ -73,6 +73,9 @@ export default {
 		height: 250px
 		overflow: hidden
 		text-align: center
+		display: flex
+		justify-content: center
+		align-items: center
 		&:hover
 			cursor: pointer
 			opacity: .8

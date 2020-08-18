@@ -38,8 +38,8 @@ export default {
 	},
 	methods: {
 		closeModal() {
-      this.$emit('close')
-      clearAllBodyScrollLocks()
+			this.$emit('close')
+			clearAllBodyScrollLocks()
 		}
 	},
 	mounted() {
@@ -66,19 +66,27 @@ export default {
 		margin: 0 auto
 		position: relative
 		top: 80px
-		padding: 32px 40px
-		width: calc(100% - 110px)
+		@include pc_view
+			width: calc(100% - 110px)
+			padding: 32px 40px
+		@include sp_view
+			width: calc(100% - 60px)
+			padding: 24px
 	.-modal-head
 		position: fixed
 		z-index: 2
 		display: flex
-		width: calc(100% - 110px)
 		height: 70px
 		color: #fff
 		top: 6px
 		left: 50%
 		transform: translateY(0%) translateX(-50%)
-		padding: 10px 0
+		@include pc_view
+			width: calc(100% - 110px)
+			padding: 10px 0
+		@include sp_view
+			width: calc(100% - 60px)
+			padding: 10px 32px 10px 0
 		.-auther-img
 			height: 48px
 			width: 48px
@@ -91,7 +99,8 @@ export default {
 				width: 100%
 		.-auther
 			flex: 5
-			line-height: 2em
+			@include pc_view
+				line-height: 2em
 	.-close
 		position: fixed
 		right: 20px
