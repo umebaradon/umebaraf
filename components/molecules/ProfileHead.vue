@@ -10,7 +10,8 @@
 				p.-name 梅原 史江
 				div
 					p.-name-title UI/UX designer & Front-end engineer
-					a(href="https://umebaraf.work") https://umebaraf.work
+					a(href="https://github.com/umebaradon" target="_blank") https://github.com/umebaradon
+					nuxt-link(to="https://umebaraf.work") https://umebaraf.work
 			div.-sns-logs
 				ul
 					li

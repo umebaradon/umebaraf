@@ -1,7 +1,7 @@
 <template lang="pug">
   div.-blog
     ul
-      li(v-for="(blog, idx) in blogs")
+      li(v-for="blog in blogs")
         blog-box(:blog="blog")
 </template>
 <script>
@@ -9,11 +9,12 @@ import axios from "axios"
 import BlogBox from '~/components/atom/BlogBox.vue'
 
 const http = axios.create({
-  baseURL: 'https://qiita.com/api/v2/'
+  baseURL: 'https://qiita.com/api/v2'
 });
 
 http.interceptors.request.use((config) => {
   config.headers.Authorization = "Bearer 61f2ffc7c257910ee4b509bd262477a9dea6e429";
+  // console.table(config)
   return config;
 }, function (error) {
   return Promise.reject(error);
