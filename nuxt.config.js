@@ -1,3 +1,5 @@
+require('dotenv').config();
+const {TOKEN_KEY} = process.env
 
 export default {
 	mode: 'universal',
@@ -64,4 +66,7 @@ export default {
 		extend: (config) => {
 		},
 	},
+	env: {
+		TOKEN_KEY
+	}
 }
