@@ -46,6 +46,7 @@ export default {
 </script>
 <style lang="sass" scoped>
 .-blog-list
+	padding: 8px
 	a
 		display: inline-block
 		vertical-align: middle
