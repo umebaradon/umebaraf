@@ -16,7 +16,7 @@
         skill-bar(skill-name="UXデザイン" :skill-years="4" :skillProportion="75")
         skill-bar(skill-name="UIデザイン" :skill-years="4" :skillProportion="90")
         skill-bar(skill-name="グラフィックデザイン" :skill-years="5" :skillProportion="70")
-        skill-bar(skill-name="Photooshop" :skill-years="5" :skillProportion="60")
+        skill-bar(skill-name="Photoshop" :skill-years="5" :skillProportion="60")
         skill-bar(skill-name="Illustrator" :skill-years="5" :skillProportion="70")
       div
         heading(:number="4" fontSize="s").-mb16 フロントエンド開発
