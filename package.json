@@ -1,6 +1,6 @@
 {
   "name": "umebaraf",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "My portfolio.",
   "author": "f-umebara",
   "private": true,
@@ -14,7 +14,7 @@
     "@nuxtjs/axios": "^5.10.3",
     "@nuxtjs/dotenv": "^1.3.0",
     "@nuxtjs/google-analytics": "^2.4.0",
-    "axios": "^1.3.4",
+    "axios": "^0.21.1",
     "body-scroll-lock": "^3.0.3",
     "install": "^0.13.0",
     "moment": "^2.27.0",
@@ -29,7 +29,7 @@
     "node-sass": "^8.0.0",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.0.0",
-    "sass-loader": "^13.2.2",
+    "sass-loader": "^10.1.1",
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.11"
   }
